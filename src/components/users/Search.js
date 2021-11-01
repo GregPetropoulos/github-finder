@@ -8,17 +8,22 @@ export class Search extends Component {
   static propTypes = {
     searchUsers: PropTypes.func.isRequired,
     clearUsers: PropTypes.func.isRequired,
-    showClear: PropTypes.bool.isRequired
+    showClear: PropTypes.bool.isRequired,
+    setAlert:PropTypes.func.isRequired,
   };
   onChange = (e) => this.setState({ [e.target.name]: e.target.value });
   onSubmit = (e) => {
     e.preventDefault();
+    if(this.state.text === ''){
+        this.props.setAlert(' Please enter something','light');
+    }else {
+    
     //console.log(this.state.text)
     //Need to call on api and pass this state to the app.js level and search for users
     this.props.searchUsers(this.state.text);
     this.setState({ text: '' });
+    }
   };
-  showClear;
   render() {
       const {showClear, clearUsers} =this.props
     return (
