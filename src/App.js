@@ -10,9 +10,9 @@ import About from './components/pages/About';
 import User from './components/users/User';
 import GithubState from './context/github/GithubState';
 
+
 const App = () => {
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
+
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
@@ -28,17 +28,8 @@ const App = () => {
   // }
 
   //Search Github users
- 
-
   //Get a single Github user
-  const getUser = async (username) => {
-    setLoading(true);
-    const res = await axios.get(
-      `https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_SECRET_ID}`
-    );
-    setUser(res.data);
-    setLoading(false);
-  };
+  
   //Get users Repos
   const getUserRepos = async (username) => {
     setLoading(true);
@@ -50,11 +41,6 @@ const App = () => {
   };
 
   //Clear users from the state
-  const clearUsers = () => {
-    setUsers([]);
-    setLoading(false);
-  };
-
   //Setting alert when nothing typed into search bar
   const showAlert = (msg, type) => {
     setAlert({ msg, type });
@@ -76,11 +62,9 @@ const App = () => {
                 render={(props) => (
                   <Fragment>
                     <Search
-                      clearUsers={clearUsers}
-                      showClear={users.length > 0 ? true : false}
-                      setAlert={showAlert}
+                    setAlert={showAlert}
                     />
-                    <Users loading={loading} users={users} />
+                    <Users />
                   </Fragment>
                 )}
               />
@@ -91,10 +75,7 @@ const App = () => {
                 render={(props) => (
                   <User
                     {...props}
-                    getUser={getUser}
                     getUserRepos={getUserRepos}
-                    user={user}
-                    loading={loading}
                     repos={repos}
                   />
                 )}
