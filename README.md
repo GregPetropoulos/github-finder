@@ -2,8 +2,16 @@
 
 
 [Deployed](https://github-finder-greg-petropoulos.netlify.app/)
+## Home Screen
+![Home Page](./src/images/home.png)
 
-screenshot
+## Users Searched
+![Users Page](./src/images/users.png)
+
+## User Profile
+![Users Profile](./src/images/user.png)
+
+
 
 ### Table of Contents
  - [Intro](#intro)
