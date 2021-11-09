@@ -35,7 +35,7 @@ export const User = ({ match }) => {
   return (
     <Fragment>
       <Link to='/' className='btn btn-light'>
-        Back to Search
+      &#8592;{''} Back to Search
       </Link>
       Hireable: {''}
       {hireable ? (
