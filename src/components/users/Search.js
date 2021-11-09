@@ -12,7 +12,7 @@ const Search = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (text === '') {
-      alertContext.setAlert(' Please enter something', 'light');
+      alertContext.setAlert(' Please enter something', 'danger');
     } else {
       //console.log(this.state.text)
       //Need to call on api and pass this state to the app.js level and search for users
